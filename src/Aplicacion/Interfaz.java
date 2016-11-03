@@ -7,6 +7,7 @@ package Aplicacion;
 
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import modulo.*;
 
 /**
  *
@@ -73,6 +74,11 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         jBnVerificar.setText("Verificar");
+        jBnVerificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBnVerificarActionPerformed(evt);
+            }
+        });
 
         jButtonLimpiar.setText("Limpiar");
         jButtonLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +165,8 @@ public class Interfaz extends javax.swing.JFrame {
             String ruta = filechooser.getSelectedFile().toString();
             JTextRuta.setText(ruta);
         }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void JTextPalabraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextPalabraActionPerformed
@@ -175,6 +183,22 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void jBnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnVerificarActionPerformed
+        // TODO add your handling code here:
+          String ruta = JTextRuta.getText();
+          String palabra = JTextPalabra.getText();
+          sistemaAutomata automata1 = new sistemaAutomata();
+          automata1.CrearAutoma(ruta);
+          automata1.verificar(palabra);
+          
+          if (automata1.verificar("")){
+            System.out.println("ci:3");
+        }   else    {
+            System.out.println("ño");
+        }
+          
+    }//GEN-LAST:event_jBnVerificarActionPerformed
 
     /**
      * @param args the command line arguments
