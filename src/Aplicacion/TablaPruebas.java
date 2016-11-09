@@ -47,4 +47,5 @@ public class TablaPruebas {
         private void establecerModeloJTable(DefaultTableModel modelo, JTable tabla){
         tabla.setModel(modelo);
     }
+        //hghgh
 }
